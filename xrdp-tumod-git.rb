@@ -1,11 +1,11 @@
 class XrdpGit < Formula
-  desc "an open source RDP server (git devel branch)"
+  desc "an open source RDP server (team unstablers mod; git devel)"
   homepage "https://www.xrdp.org"
   license "Apache-2.0"
-  version "git-devel"
+  version "git-tumod-devel"
 
   head do
-    url "https://github.com/neutrinolabs/xrdp.git", branch: "devel"
+    url "https://github.com/team-unstablers/xrdp-tumod.git", branch: "macos-tumod"
   end
 
   depends_on xcode: ["12.0", :build]
@@ -24,7 +24,6 @@ class XrdpGit < Formula
   depends_on "libxrandr" 
 
   def install
-    system "sh", "-c", "patch -p1 < ulalaca/xrdp-encoder-force-use-bgra.patch"
     system "./bootstrap"
     system "./configure", "--enable-strict-locations", "--enable-ulalaca", *std_configure_args, "--sysconfdir=" + pkgetc
     system "make", "-j8"
