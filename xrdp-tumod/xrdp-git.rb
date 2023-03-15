@@ -36,6 +36,12 @@ class XrdpGit < Formula
     EOS
   end
 
+  service do
+    run [opt_prefix/"sbin/xrdp", "-n"]
+    keep_alive true
+    require_root true
+  end
+
   test do
     system "true"
   end
