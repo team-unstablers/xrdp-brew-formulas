@@ -8,8 +8,6 @@ class XrdpGit < Formula
     url "https://github.com/neutrinolabs/xrdp.git", branch: "devel"
   end
 
-  depends_on xcode: ["12.0", :build]
-
   depends_on "automake" => :build
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
